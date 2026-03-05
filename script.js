@@ -1,6 +1,20 @@
 const featuredRepos = [
   {
     owner: "unnatii14",
+    name: "Myopia-Risk-Prediction",
+    blurb:
+      "3-stage ML pipeline (refractive error detection → risk classification → diopter prediction) on 5,000 pediatric records using XGBoost and Gradient Boosting. Achieved ROC-AUC 0.88 and 81.2% accuracy with full-stack React web app.",
+    tags: ["XGBoost", "React", "TypeScript", "Tailwind", "ML Pipeline"],
+  },
+  {
+    owner: "unnatii14",
+    name: "sleepytales-App",
+    blurb:
+      "Flutter Android app featuring 30+ illustrated bedtime stories with AI-powered Text-to-Speech narration, 8 procedurally generated sleep music tracks, and nursery rhymes — all playable offline. Built with Provider state management.",
+    tags: ["Flutter", "AI TTS", "Provider", "Offline-First", "Audio"],
+  },
+  {
+    owner: "unnatii14",
     name: "Smart-Chatbot",
     blurb:
       "Document-aware AI chatbot using TinyLlama with RAG. Features real-time document upload, FAISS vector search, and dynamic responses via Gradio UI. Built during Infynno Solutions internship.",
@@ -118,79 +132,341 @@ function rotateEyebrow() {
   }, 3500);
 }
 
-function animateSkillBars() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const fills = entry.target.querySelectorAll(".skill-fill");
-          fills.forEach((fill) => {
-            const width = fill.style.width;
-            fill.style.width = "0";
-            setTimeout(() => {
-              fill.style.width = width;
-            }, 100);
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  const resumeSection = document.querySelector("#resume");
-  if (resumeSection) {
-    observer.observe(resumeSection);
-  }
-}
-
-function initPanels() {
-  const panels = Array.from(document.querySelectorAll("[data-panel]"));
-  const navLinks = Array.from(document.querySelectorAll("[data-panel-target]"));
-  if (!panels.length || !navLinks.length) return;
-
-  document.body.classList.add("js-enabled");
-
-  const collapseAll = () => {
-    panels.forEach((panel) => panel.classList.remove("active"));
-    navLinks.forEach((link) => link.classList.remove("active"));
-  };
-
-  const activatePanel = (panelId) => {
-    let found = false;
-    panels.forEach((panel) => {
-      if (panel.dataset.panel === panelId) {
-        panel.classList.add("active");
-        panel.scrollIntoView({ behavior: "smooth", block: "start" });
-        found = true;
-      } else {
-        panel.classList.remove("active");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      const isMatch = link.dataset.panelTarget === panelId;
-      link.classList.toggle("active", isMatch);
-    });
-  };
-
+// Smooth Scroll Navigation
+function initSmoothScroll() {
+  const navLinks = document.querySelectorAll("[data-panel-target]");
+  
   navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
-      const { panelTarget } = link.dataset;
-      if (!panelTarget || panelTarget === "none") {
-        collapseAll();
-        link.classList.add("active");
+      event.preventDefault();
+      
+      const target = link.dataset.panelTarget;
+      
+      // Handle home link
+      if (target === "none") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
-
-      event.preventDefault();
-      activatePanel(panelTarget);
+      
+      // Scroll to section
+      const section = document.getElementById(target);
+      if (section) {
+        const offsetTop = section.offsetTop - 100; // 100px offset for spacing
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      }
     });
   });
 }
 
+// Scroll Spy - highlight active section in nav
+function initScrollSpy() {
+  const sections = document.querySelectorAll("[data-panel]");
+  const navLinks = document.querySelectorAll("[data-panel-target]");
+  
+  window.addEventListener("scroll", () => {
+    let current = "";
+    
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (window.pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute("data-panel");
+      }
+    });
+    
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.dataset.panelTarget === current) {
+        link.classList.add("active");
+      }
+    });
+    
+    // Highlight home when at top
+    if (window.pageYOffset < 300) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.dataset.panelTarget === "none") {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}
+
+// Particle System
+function createParticles() {
+  const particlesContainer = document.getElementById("particles");
+  if (!particlesContainer) return;
+
+  const particleCount = 25;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    
+    const randomX = Math.random() * 100;
+    const randomDelay = Math.random() * 8;
+    const randomDuration = 8 + Math.random() * 4;
+    
+    particle.style.left = `${randomX}%`;
+    particle.style.animationDelay = `${randomDelay}s`;
+    particle.style.animationDuration = `${randomDuration}s`;
+    
+    particlesContainer.appendChild(particle);
+  }
+}
+
+// Smooth scroll parallax effect (only for background orbs)
+function initParallax() {
+  let ticking = false;
+  
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".background-orbs");
+        
+        parallaxElements.forEach((el) => {
+          const speed = 0.3;
+          el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+        
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+
+// Typing effect for tagline
+function initTypingEffect() {
+  const typingElement = document.querySelector(".typing-text");
+  if (!typingElement) return;
+
+  const phrases = [
+    "Aspiring Developer",
+    "Python Expert",
+    "Flutter Developer",
+    "Machine Learning Engineer",
+    "AI Enthusiast",
+    "Full-Stack Developer"
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 100;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+      typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 50;
+    } else {
+      typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 100;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      typingSpeed = 2000; // Pause at end
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typingSpeed = 500; // Pause before next phrase
+    }
+
+    setTimeout(type, typingSpeed);
+  }
+
+  type();
+}
+
+// Scroll to Top Button
+function initScrollTopButton() {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  if (!scrollTopBtn) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add("visible");
+    } else {
+      scrollTopBtn.classList.remove("visible");
+    }
+  });
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
+
+// Scroll Progress Bar
+function initScrollProgress() {
+  const progressBar = document.getElementById("scrollProgressBar");
+  if (!progressBar) return;
+
+  window.addEventListener("scroll", () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.pageYOffset / windowHeight) * 100;
+    progressBar.style.width = `${scrolled}%`;
+  });
+}
+
+// Mobile Menu Toggle
+function initMobileMenu() {
+  const menuToggle = document.getElementById("mobileMenuToggle");
+  const nav = document.getElementById("mainNav");
+  const navLinks = nav.querySelectorAll("a");
+
+  if (!menuToggle) return;
+
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
+
+  // Close menu when clicking a link
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      nav.classList.remove("active");
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove("active");
+      nav.classList.remove("active");
+    }
+  });
+}
+
+// Contact Form Handler with EmailJS
+function initContactForm() {
+  const form = document.getElementById("contactForm");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  const statusMsg = form?.querySelector('.form-status');
+  
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      // Disable submit button
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.style.opacity = '0.7';
+      
+      if (statusMsg) {
+        statusMsg.textContent = 'Sending your message...';
+        statusMsg.style.color = 'var(--accent)';
+        statusMsg.style.display = 'block';
+      }
+      
+      // Check if EmailJS is configured
+      if (typeof emailjs === 'undefined') {
+        // EmailJS not loaded, use mailto fallback
+        const formData = new FormData(form);
+        const name = formData.get('from_name') || formData.get('name');
+        const email = formData.get('reply_to') || formData.get('email');
+        const message = formData.get('message');
+        
+        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        window.location.href = `mailto:unnatitank14@gmail.com?subject=${subject}&body=${body}`;
+        
+        submitBtn.textContent = '✓ Email Client Opened!';
+        submitBtn.style.background = '#10b981';
+        if (statusMsg) {
+          statusMsg.textContent = 'Your email client has been opened.';
+          statusMsg.style.color = '#10b981';
+        }
+        
+        setTimeout(() => {
+          form.reset();
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          if (statusMsg) statusMsg.style.display = 'none';
+        }, 3000);
+        return;
+      }
+      
+      // Send email using EmailJS
+      emailjs.sendForm('service_portfolio', 'template_contact', form)
+        .then(() => {
+          // Success
+          submitBtn.textContent = '✓ Message Sent!';
+          submitBtn.style.background = '#10b981';
+          
+          if (statusMsg) {
+            statusMsg.textContent = 'Thanks! Your message has been sent successfully.';
+            statusMsg.style.color = '#10b981';
+          }
+          
+          // Reset form
+          form.reset();
+          
+          // Reset button after 3 seconds
+          setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            if (statusMsg) statusMsg.style.display = 'none';
+          }, 3000);
+        }, (error) => {
+          // Error - use mailto fallback
+          console.error('EmailJS Error:', error);
+          
+          const formData = new FormData(form);
+          const name = formData.get('from_name');
+          const email = formData.get('reply_to');
+          const message = formData.get('message');
+          
+          const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+          const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+          window.location.href = `mailto:unnatitank14@gmail.com?subject=${subject}&body=${body}`;
+          
+          submitBtn.textContent = '✓ Email Client Opened';
+          submitBtn.style.background = '#f59e0b';
+          
+          if (statusMsg) {
+            statusMsg.textContent = 'Opened your email client as backup.';
+            statusMsg.style.color = '#f59e0b';
+          }
+          
+          setTimeout(() => {
+            form.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            if (statusMsg) statusMsg.style.display = 'none';
+          }, 3000);
+        });
+    });
+  }
+}
+
 renderProjects();
 initAnimations();
-animateSkillBars();
 rotateEyebrow();
-initPanels();
+initSmoothScroll();
+initScrollSpy();
+createParticles();
+initParallax();
+initTypingEffect();
+initScrollTopButton();
+initScrollProgress();
+initMobileMenu();
+initContactForm();
