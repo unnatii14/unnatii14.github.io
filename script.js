@@ -402,7 +402,7 @@ function initContactForm() {
       }
       
       // Send email using EmailJS
-      emailjs.sendForm('service_portfolio', 'template_contact', form)
+      emailjs.sendForm('service_mq0tuzq', 'template_bkh40xu', form)
         .then(() => {
           // Success
           submitBtn.textContent = '✓ Message Sent!';
