@@ -115,23 +115,6 @@ function initAnimations() {
   document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
 }
 
-function rotateEyebrow() {
-  const target = document.querySelector(".hero-copy .eyebrow");
-  if (!target) return;
-  const labels = [
-    "AI & ML Explorer",
-    "Computer Vision Enthusiast",
-    "NLP Learner",
-    "AI for Healthcare",
-    "Full-Stack Developer",
-  ];
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % labels.length;
-    target.textContent = labels[index];
-  }, 3500);
-}
-
 // Smooth Scroll Navigation
 function initSmoothScroll() {
   const navLinks = document.querySelectorAll("[data-panel-target]");
@@ -245,12 +228,13 @@ function initTypingEffect() {
   if (!typingElement) return;
 
   const phrases = [
+    "AI & ML Explorer",
+    "NLP Learner",
+    "AI for Healthcare",
     "Aspiring Developer",
-    "Python Expert",
-    "Flutter Developer",
-    "Machine Learning Engineer",
-    "AI Enthusiast",
-    "Full-Stack Developer"
+    "Python Enthusiast",
+    "Building with Flutter",
+    "Tech Explorer"
   ];
 
   let phraseIndex = 0;
@@ -460,7 +444,6 @@ function initContactForm() {
 
 renderProjects();
 initAnimations();
-rotateEyebrow();
 initSmoothScroll();
 initScrollSpy();
 createParticles();
