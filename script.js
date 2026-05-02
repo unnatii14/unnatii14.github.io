@@ -1,52 +1,78 @@
+/* =====================================================
+   Unnati Tank — Portfolio · scripts
+   ===================================================== */
+
+/* ---------- 1. Featured Projects (top 6 from resume + SleepyTales) ---------- */
 const featuredRepos = [
   {
     owner: "unnatii14",
-    name: "Myopia-Risk-Prediction",
+    name: "MeetFlow",
+    title: "MeetFlow · AI Meeting-to-Task SaaS",
     blurb:
-      "3-stage ML pipeline (refractive error detection → risk classification → diopter prediction) on 5,000 pediatric records using XGBoost and Gradient Boosting. Achieved ROC-AUC 0.88 and 81.2% accuracy with full-stack React web app.",
-    tags: ["XGBoost", "React", "TypeScript", "Tailwind", "ML Pipeline"],
-  },
-  {
-    owner: "unnatii14",
-    name: "sleepytales-App",
-    blurb:
-      "Flutter Android app featuring 30+ illustrated bedtime stories with AI-powered Text-to-Speech narration, 8 procedurally generated sleep music tracks, and nursery rhymes — all playable offline. Built with Provider state management.",
-    tags: ["Flutter", "AI TTS", "Provider", "Offline-First", "Audio"],
+      "Three-stage LangChain pipeline (clean → extract → validate) that turns meeting transcripts into structured tasks and auto-syncs them to Slack. Role-based dashboards on Next.js + Supabase, load-tested to 500 concurrent users.",
+    tags: ["Next.js", "LangChain", "Supabase", "Node.js", "SaaS"],
+    demo: "https://meetflow-demo.vercel.app/",
+    repo: "https://github.com/unnatii14",
+    language: "Next.js · LangChain",
+    badge: "🏆 Top 100 / 502 — CHARUSAT Hacks 2026",
   },
   {
     owner: "unnatii14",
     name: "Smart-Chatbot",
+    title: "SmartChat · RAG Document Q&A",
     blurb:
-      "Document-aware AI chatbot using TinyLlama with RAG. Features real-time document upload, FAISS vector search, and dynamic responses via Gradio UI. Built during Infynno Solutions internship.",
+      "Production-ready RAG chatbot with TinyLlama + FAISS vector search. Embedding generation, similarity search, and context-aware response synthesis through a Gradio UI. Cut document query latency 30% vs. baseline at Infynno Solutions.",
     tags: ["TinyLlama", "RAG", "FAISS", "Gradio", "FastAPI"],
+    repo: "https://github.com/unnatii14/Smart-Chatbot",
+    language: "Python · NLP",
+    badge: "💼 Built during Infynno internship",
   },
   {
     owner: "unnatii14",
-    name: "Indian-Constitution-Vault",
+    name: "Myopia-Risk-Prediction",
+    title: "Myopia Risk Prediction System",
     blurb:
-      "Cross-platform mobile & web app with Flutter + FastAPI, making 2000+ Indian law sections accessible. Features Law Finder across 11 legal domains including Criminal Law, Property Rights, and Cyber Crime.",
-    tags: ["Flutter", "FastAPI", "REST API", "Netlify", "Legal Tech"],
+      "Three-stage ML pipeline on 5,000 pediatric records: refractive error detection (XGBoost, AUC 0.943), risk progression (81.2% accuracy), and diopter estimation (MAE 1.75 D). 35 domain-engineered features with permutation-importance explainability.",
+    tags: ["XGBoost", "React", "TypeScript", "Tailwind", "Healthcare"],
+    demo: "https://health-decode.vercel.app/",
+    repo: "https://github.com/unnatii14/Myopia-Risk-Prediction",
+    language: "Python · React",
+    badge: "🏥 Production healthcare ML",
   },
   {
     owner: "unnatii14",
     name: "aquavision-flutter",
+    title: "AquaVision · Fish Species Classifier",
     blurb:
-      "Cross-platform Flutter app with FastAPI backend serving EfficientNet-B0 model for fish species identification. Features camera integration, real-time classification, and similarity search with confidence scores.",
+      "Cross-platform Flutter app with FastAPI backend serving a fine-tuned EfficientNet-B0 for real-time fish species classification from camera input. Similarity search and confidence-scored predictions with sub-second inference latency.",
     tags: ["Flutter", "FastAPI", "EfficientNet", "Computer Vision"],
+    repo: "https://github.com/unnatii14/aquavision-flutter",
+    language: "Flutter · CV",
+    badge: "📱 Real-time on-device",
   },
   {
-    owner: "Puja-Rachchh",
-    name: "MindSprint",
+    owner: "unnatii14",
+    name: "Indian-Constitution-Vault",
+    title: "Indian Constitution Vault",
     blurb:
-      "Wellness companion app built with Flutter & Firebase. Tracks mindful routines, wellness habits, and provides personalized wellness nudges and insights.",
-    tags: ["Flutter", "Firebase", "UX", "Wellness"],
+      "Offline Flutter app on Google Play providing access to 2,000+ legal sections (BNS, BNSS, BSA, Constitution) with Law Finder, bookmarks, and text-to-speech. Smart search with legal abbreviation expansion for everyday citizens.",
+    tags: ["Flutter", "Riverpod", "GoRouter", "Legal-Tech"],
+    demo: "https://play.google.com/store/apps/details?id=com.indianlaw.indian_constitution_vault",
+    repo: "https://github.com/unnatii14/Indian-Constitution-Vault",
+    language: "Flutter · Mobile",
+    badge: "🌐 Live on Google Play",
   },
   {
-    owner: "Hetvi2211",
-    name: "Marine-Species-Classifier",
+    owner: "unnatii14",
+    name: "sleepytales-App",
+    title: "SleepyTales · Bedtime Stories & Lullabies 🌙",
     blurb:
-      "Deep learning CNN classifier for detecting and classifying marine species. Supports conservation research and biodiversity monitoring efforts.",
-    tags: ["TensorFlow", "CNN", "Deep Learning", "Conservation"],
+      "Flutter mobile app helping kids drift to sleep with 42 bedtime stories across 7 categories and 14 classic nursery rhymes. AI-powered TTS narration with customizable speed, pitch, and volume. 100% offline with favorites, mini-player, and dark theme tuned for nighttime use.",
+    tags: ["Flutter", "AI TTS", "Offline-First", "Kids", "Audio"],
+    demo: "https://play.google.com/store/apps/details?id=com.sleepytales.app",
+    repo: "https://github.com/unnatii14/sleepytales-App",
+    language: "Flutter · Mobile",
+    badge: "🌙 Live on Google Play",
   },
 ];
 
@@ -60,16 +86,11 @@ async function hydrateRepo(repo) {
       ...repo,
       url: data.html_url,
       stars: data.stargazers_count ?? 0,
-      language: data.language ?? "",
+      ghLanguage: data.language ?? "",
     };
   } catch (error) {
     console.warn(error.message);
-    return {
-      ...repo,
-      url: endpoint.replace("api.github.com/repos", "github.com"),
-      stars: "—",
-      language: repo.tags?.[0] ?? "",
-    };
+    return { ...repo, url: repo.repo, stars: "—", ghLanguage: "" };
   }
 }
 
@@ -82,23 +103,36 @@ async function renderProjects() {
 
   hydrated.forEach((repo) => {
     const card = document.createElement("article");
-    card.className = "project-card";
+    card.className = "project-card tilt-card";
+
+    const demoLink = repo.demo
+      ? `<a class="project-link demo" href="${repo.demo}" target="_blank" rel="noopener">Live demo →</a>`
+      : "";
+    const repoUrl = repo.url || repo.repo;
+
     card.innerHTML = `
       <div class="project-meta">
-        <span>${repo.language || "Multi-stack"}</span>
+        <span class="lang">${repo.language}</span>
         <span>★ ${repo.stars}</span>
       </div>
-      <h3>${repo.name.replace(/-/g, " ")}</h3>
+      <h3>${repo.title}</h3>
+      ${repo.badge ? `<div class="project-badge" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--c-violet);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.25);padding:0.3rem 0.65rem;border-radius:999px;width:fit-content;">${repo.badge}</div>` : ""}
       <p>${repo.blurb}</p>
       <div class="tag-list">
-        ${repo.tags.map((tag) => `<span>${tag}</span>`).join("")}
+        ${repo.tags.map((t) => `<span>${t}</span>`).join("")}
       </div>
-      <a href="${repo.url}" target="_blank" rel="noopener">View repo ↗</a>
+      <div class="project-links">
+        ${demoLink}
+        <a class="project-link" href="${repoUrl}" target="_blank" rel="noopener">View code ↗</a>
+      </div>
     `;
     grid.appendChild(card);
   });
+
+  initTilt();
 }
 
+/* ---------- 2. Scroll-reveal observer ---------- */
 function initAnimations() {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -109,347 +143,341 @@ function initAnimations() {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.12, rootMargin: "0px 0px -80px 0px" }
   );
 
   document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
 }
 
-// Smooth Scroll Navigation
+/* ---------- 3. Smooth scroll nav ---------- */
 function initSmoothScroll() {
   const navLinks = document.querySelectorAll("[data-panel-target]");
-  
   navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      
       const target = link.dataset.panelTarget;
-      
-      // Handle home link
       if (target === "none") {
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
-      
-      // Scroll to section
       const section = document.getElementById(target);
       if (section) {
-        const offsetTop = section.offsetTop - 100; // 100px offset for spacing
+        const offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 90;
         window.scrollTo({ top: offsetTop, behavior: "smooth" });
       }
     });
   });
 }
 
-// Scroll Spy - highlight active section in nav
+/* ---------- 4. Scroll spy ---------- */
 function initScrollSpy() {
   const sections = document.querySelectorAll("[data-panel]");
   const navLinks = document.querySelectorAll("[data-panel-target]");
-  
-  window.addEventListener("scroll", () => {
+  let ticking = false;
+
+  function update() {
     let current = "";
-    
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      
-      if (window.pageYOffset >= sectionTop - 200) {
-        current = section.getAttribute("data-panel");
-      }
+      const top = section.getBoundingClientRect().top;
+      if (top - 200 <= 0) current = section.getAttribute("data-panel");
     });
-    
+
     navLinks.forEach((link) => {
       link.classList.remove("active");
-      if (link.dataset.panelTarget === current) {
-        link.classList.add("active");
-      }
+      if (link.dataset.panelTarget === current) link.classList.add("active");
     });
-    
-    // Highlight home when at top
+
     if (window.pageYOffset < 300) {
       navLinks.forEach((link) => {
         link.classList.remove("active");
-        if (link.dataset.panelTarget === "none") {
-          link.classList.add("active");
-        }
+        if (link.dataset.panelTarget === "none") link.classList.add("active");
       });
     }
-  });
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
-// Particle System
+/* ---------- 5. Particles ---------- */
 function createParticles() {
-  const particlesContainer = document.getElementById("particles");
-  if (!particlesContainer) return;
+  const container = document.getElementById("particles");
+  if (!container) return;
+  const count = 28;
 
-  const particleCount = 25;
-
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement("div");
-    particle.className = "particle";
-    
-    const randomX = Math.random() * 100;
-    const randomDelay = Math.random() * 8;
-    const randomDuration = 8 + Math.random() * 4;
-    
-    particle.style.left = `${randomX}%`;
-    particle.style.animationDelay = `${randomDelay}s`;
-    particle.style.animationDuration = `${randomDuration}s`;
-    
-    particlesContainer.appendChild(particle);
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.animationDelay = `${Math.random() * 8}s`;
+    p.style.animationDuration = `${8 + Math.random() * 4}s`;
+    container.appendChild(p);
   }
 }
 
-// Smooth scroll parallax effect (only for background orbs)
-function initParallax() {
-  let ticking = false;
-  
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll(".background-orbs");
-        
-        parallaxElements.forEach((el) => {
-          const speed = 0.3;
-          el.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-        
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-}
-
-// Typing effect for tagline
+/* ---------- 6. Typing effect ---------- */
 function initTypingEffect() {
-  const typingElement = document.querySelector(".typing-text");
-  if (!typingElement) return;
+  const el = document.querySelector(".typing-text");
+  if (!el) return;
 
   const phrases = [
-    "AI & ML Explorer",
-    "NLP Learner",
-    "AI for Healthcare",
-    "Aspiring Developer",
-    "Python Enthusiast",
-    "Building with Flutter",
-    "Tech Explorer"
+    "AI/ML Engineer in training",
+    "Building RAG systems with LangChain",
+    "Computer Vision researcher",
+    "Full-stack ML deployer",
+    "Flutter & FastAPI shipper",
+    "Hackathon nerd · paper reader",
   ];
 
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 100;
+  let phraseIndex = 0, charIndex = 0, isDeleting = false, speed = 90;
 
   function type() {
-    const currentPhrase = phrases[phraseIndex];
-    
+    const phrase = phrases[phraseIndex];
     if (isDeleting) {
-      typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      el.textContent = phrase.substring(0, charIndex - 1);
       charIndex--;
-      typingSpeed = 50;
+      speed = 40;
     } else {
-      typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      el.textContent = phrase.substring(0, charIndex + 1);
       charIndex++;
-      typingSpeed = 100;
+      speed = 80;
     }
 
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      typingSpeed = 2000; // Pause at end
+    if (!isDeleting && charIndex === phrase.length) {
+      speed = 1800;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 500; // Pause before next phrase
+      speed = 400;
     }
-
-    setTimeout(type, typingSpeed);
+    setTimeout(type, speed);
   }
-
   type();
 }
 
-// Scroll to Top Button
-function initScrollTopButton() {
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
-  if (!scrollTopBtn) return;
+/* ---------- 7. Stat counter animation ---------- */
+function initCounters() {
+  const counters = document.querySelectorAll(".stat-num");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10) || 0;
+        const duration = 1500;
+        const start = performance.now();
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 300) {
-      scrollTopBtn.classList.add("visible");
-    } else {
-      scrollTopBtn.classList.remove("visible");
-    }
-  });
-
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target).toLocaleString();
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      }
     });
-  });
+  }, { threshold: 0.5 });
+
+  counters.forEach((c) => observer.observe(c));
 }
 
-// Scroll Progress Bar
-function initScrollProgress() {
-  const progressBar = document.getElementById("scrollProgressBar");
-  if (!progressBar) return;
-
+/* ---------- 8. Scroll-to-top button ---------- */
+function initScrollTopButton() {
+  const btn = document.getElementById("scrollTopBtn");
+  if (!btn) return;
   window.addEventListener("scroll", () => {
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (window.pageYOffset / windowHeight) * 100;
-    progressBar.style.width = `${scrolled}%`;
-  });
+    btn.classList.toggle("visible", window.pageYOffset > 400);
+  }, { passive: true });
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 }
 
-// Mobile Menu Toggle
+/* ---------- 9. Scroll progress bar ---------- */
+function initScrollProgress() {
+  const bar = document.getElementById("scrollProgressBar");
+  if (!bar) return;
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    bar.style.width = `${(window.pageYOffset / h) * 100}%`;
+  }, { passive: true });
+}
+
+/* ---------- 10. Mobile nav ---------- */
 function initMobileMenu() {
-  const menuToggle = document.getElementById("mobileMenuToggle");
+  const toggle = document.getElementById("mobileMenuToggle");
   const nav = document.getElementById("mainNav");
-  const navLinks = nav.querySelectorAll("a");
+  if (!toggle || !nav) return;
+  const links = nav.querySelectorAll("a");
 
-  if (!menuToggle) return;
-
-  menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
     nav.classList.toggle("active");
   });
-
-  // Close menu when clicking a link
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      menuToggle.classList.remove("active");
+  links.forEach((l) =>
+    l.addEventListener("click", () => {
+      toggle.classList.remove("active");
       nav.classList.remove("active");
-    });
-  });
-
-  // Close menu when clicking outside
+    })
+  );
   document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-      menuToggle.classList.remove("active");
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      toggle.classList.remove("active");
       nav.classList.remove("active");
     }
   });
 }
 
-// Contact Form Handler with EmailJS
-function initContactForm() {
-  const form = document.getElementById("contactForm");
-  const submitBtn = form?.querySelector('button[type="submit"]');
-  const statusMsg = form?.querySelector('.form-status');
-  
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      
-      // Disable submit button
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.style.opacity = '0.7';
-      
-      if (statusMsg) {
-        statusMsg.textContent = 'Sending your message...';
-        statusMsg.style.color = 'var(--accent)';
-        statusMsg.style.display = 'block';
-      }
-      
-      // Check if EmailJS is configured
-      if (typeof emailjs === 'undefined') {
-        // EmailJS not loaded, use mailto fallback
-        const formData = new FormData(form);
-        const name = formData.get('from_name') || formData.get('name');
-        const email = formData.get('reply_to') || formData.get('email');
-        const message = formData.get('message');
-        
-        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        window.location.href = `mailto:unnatitank14@gmail.com?subject=${subject}&body=${body}`;
-        
-        submitBtn.textContent = '✓ Email Client Opened!';
-        submitBtn.style.background = '#10b981';
-        if (statusMsg) {
-          statusMsg.textContent = 'Your email client has been opened.';
-          statusMsg.style.color = '#10b981';
-        }
-        
-        setTimeout(() => {
-          form.reset();
-          submitBtn.textContent = originalText;
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
-          submitBtn.style.opacity = '1';
-          if (statusMsg) statusMsg.style.display = 'none';
-        }, 3000);
-        return;
-      }
-      
-      // Send email using EmailJS
-      emailjs.sendForm('service_mq0tuzq', 'template_bkh40xu', form)
-        .then(() => {
-          // Success
-          submitBtn.textContent = '✓ Message Sent!';
-          submitBtn.style.background = '#10b981';
-          
-          if (statusMsg) {
-            statusMsg.textContent = 'Thanks! Your message has been sent successfully.';
-            statusMsg.style.color = '#10b981';
-          }
-          
-          // Reset form
-          form.reset();
-          
-          // Reset button after 3 seconds
-          setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            if (statusMsg) statusMsg.style.display = 'none';
-          }, 3000);
-        }, (error) => {
-          // Error - use mailto fallback
-          console.error('EmailJS Error:', error);
-          
-          const formData = new FormData(form);
-          const name = formData.get('from_name');
-          const email = formData.get('reply_to');
-          const message = formData.get('message');
-          
-          const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-          const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-          window.location.href = `mailto:unnatitank14@gmail.com?subject=${subject}&body=${body}`;
-          
-          submitBtn.textContent = '✓ Email Client Opened';
-          submitBtn.style.background = '#f59e0b';
-          
-          if (statusMsg) {
-            statusMsg.textContent = 'Opened your email client as backup.';
-            statusMsg.style.color = '#f59e0b';
-          }
-          
-          setTimeout(() => {
-            form.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            if (statusMsg) statusMsg.style.display = 'none';
-          }, 3000);
-        });
+/* ---------- 11. 3D Tilt on cards ---------- */
+function initTilt() {
+  const cards = document.querySelectorAll(".tilt-card");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) return;
+
+  cards.forEach((card) => {
+    if (card.dataset.tiltBound === "true") return;
+    card.dataset.tiltBound = "true";
+
+    let rafId = null;
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotateY = ((x - cx) / cx) * 6;
+      const rotateX = -((y - cy) / cy) * 6;
+
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+      });
     });
-  }
+
+    card.addEventListener("mouseleave", () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)";
+    });
+  });
 }
 
-renderProjects();
-initAnimations();
-initSmoothScroll();
-initScrollSpy();
-createParticles();
-initParallax();
-initTypingEffect();
-initScrollTopButton();
-initScrollProgress();
-initMobileMenu();
-initContactForm();
+/* ---------- 12. Cursor glow follower (desktop) ---------- */
+function initCursorGlow() {
+  const glow = document.getElementById("cursorGlow");
+  if (!glow || window.matchMedia("(max-width: 900px)").matches) return;
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let glowX = mouseX, glowY = mouseY;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function loop() {
+    glowX += (mouseX - glowX) * 0.15;
+    glowY += (mouseY - glowY) * 0.15;
+    glow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(loop);
+  }
+  loop();
+}
+
+/* ---------- 13. Contact form (EmailJS + mailto fallback) ---------- */
+function initContactForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitText = submitBtn.querySelector("span");
+  const statusMsg = form.querySelector(".form-status");
+  const originalText = submitText ? submitText.textContent : submitBtn.textContent;
+
+  function setBtn(text, color) {
+    if (submitText) submitText.textContent = text;
+    else submitBtn.textContent = text;
+    if (color) submitBtn.style.background = color;
+  }
+  function resetBtn() {
+    setBtn(originalText, "");
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = "1";
+    if (statusMsg) statusMsg.style.display = "none";
+  }
+
+  function mailtoFallback(form) {
+    const fd = new FormData(form);
+    const name = fd.get("from_name");
+    const email = fd.get("reply_to");
+    const message = fd.get("message");
+    const subj = encodeURIComponent("Portfolio contact from " + name);
+    const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message);
+    window.location.href = "mailto:unnatitank14@gmail.com?subject=" + subj + "&body=" + body;
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = "0.75";
+    setBtn("Sending…");
+
+    if (statusMsg) {
+      statusMsg.textContent = "Sending your message…";
+      statusMsg.style.color = "var(--c-cyan)";
+      statusMsg.style.display = "block";
+    }
+
+    if (typeof emailjs === "undefined") {
+      mailtoFallback(form);
+      setBtn("✓ Email opened", "#10b981");
+      setTimeout(() => { form.reset(); resetBtn(); }, 3000);
+      return;
+    }
+
+    emailjs.sendForm("service_mq0tuzq", "template_bkh40xu", form).then(
+      () => {
+        setBtn("✓ Sent!", "#10b981");
+        if (statusMsg) {
+          statusMsg.textContent = "Thanks — I'll reply within 24h.";
+          statusMsg.style.color = "#10b981";
+        }
+        form.reset();
+        setTimeout(resetBtn, 3500);
+      },
+      (err) => {
+        console.error("EmailJS error", err);
+        mailtoFallback(form);
+        setBtn("✓ Email opened", "#f59e0b");
+        if (statusMsg) {
+          statusMsg.textContent = "Opened your email client as backup.";
+          statusMsg.style.color = "#f59e0b";
+        }
+        setTimeout(() => { form.reset(); resetBtn(); }, 3000);
+      }
+    );
+  });
+}
+
+/* ---------- INIT ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("js-enabled");
+  renderProjects();
+  initAnimations();
+  initSmoothScroll();
+  initScrollSpy();
+  createParticles();
+  initTypingEffect();
+  initCounters();
+  initScrollTopButton();
+  initScrollProgress();
+  initMobileMenu();
+  initTilt();
+  initCursorGlow();
+  initContactForm();
+});
+

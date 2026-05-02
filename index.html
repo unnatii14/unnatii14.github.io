@@ -4,25 +4,25 @@
     <meta name="google-site-verification" content="mqNwJjomIL03FSwGhJZzChZYthiIuxJB0c0hUXkfC-Y" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unnati Tank | AI/ML Developer & Student Portfolio</title>
-    <meta name="description" content="Unnati Tank - 3rd-year B.Tech AI/ML student specializing in Machine Learning, Deep Learning, Computer Vision, and NLP. Explore my projects in healthcare AI, mobile apps, and intelligent systems." />
-    <meta name="keywords" content="Unnati Tank, AI ML Developer, Machine Learning, Deep Learning, Computer Vision, NLP, Flutter Developer, Python Developer, AI Portfolio" />
+    <title>Unnati Tank | AI/ML Engineer · RAG · Computer Vision · Full-Stack</title>
+    <meta name="description" content="Unnati Tank - AI/ML Engineering student building production RAG chatbots, computer vision classifiers, and LangChain SaaS apps with Python, PyTorch, FastAPI, React and Flutter." />
+    <meta name="keywords" content="Unnati Tank, AI ML Engineer, RAG, LangChain, Computer Vision, NLP, PyTorch, FastAPI, Flutter, Next.js, Portfolio" />
     <meta name="author" content="Unnati Tank" />
-    
+
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Unnati Tank | AI/ML Developer Portfolio" />
-    <meta property="og:description" content="3rd-year B.Tech AI/ML student specializing in Machine Learning, Computer Vision, and NLP. Building impactful AI solutions." />
+    <meta property="og:title" content="Unnati Tank | AI/ML Engineer Portfolio" />
+    <meta property="og:description" content="Building production AI: RAG chatbots, CV classifiers, LangChain SaaS. Open to internships and collaborations." />
     <meta property="og:url" content="https://yourwebsite.com" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Unnati Tank | AI/ML Developer" />
-    <meta name="twitter:description" content="AI/ML student building intelligent systems and real-world applications." />
-    
+    <meta name="twitter:title" content="Unnati Tank | AI/ML Engineer" />
+    <meta name="twitter:description" content="AI/ML student shipping production-grade intelligent systems." />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <!-- EmailJS SDK -->
@@ -33,11 +33,34 @@
       (function(){
         emailjs.init("Adw0f9iodM5hAzSfF");
       })();
-    </script>`
-    
+    </script>
+
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress">
       <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Animated SVG Wave Background -->
+    <div class="wave-bg" aria-hidden="true">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+            <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.30"/>
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.25"/>
+          </linearGradient>
+          <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#a855f7" stop-opacity="0.18"/>
+          </linearGradient>
+        </defs>
+        <path class="wave wave-1" fill="url(#waveGrad1)"
+          d="M0,320 C240,420 480,180 720,260 C960,340 1200,180 1440,280 L1440,600 L0,600 Z"></path>
+        <path class="wave wave-2" fill="url(#waveGrad2)"
+          d="M0,380 C240,300 480,460 720,360 C960,260 1200,420 1440,340 L1440,600 L0,600 Z"></path>
+        <path class="wave wave-3" fill="rgba(6,182,212,0.10)"
+          d="M0,460 C240,520 480,380 720,440 C960,500 1200,400 1440,460 L1440,600 L0,600 Z"></path>
+      </svg>
     </div>
 
     <!-- Particle Background -->
@@ -49,24 +72,28 @@
       <span></span>
     </div>
 
+    <!-- Custom Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
     <div class="page">
       <header class="header">
         <div class="header-content">
+          <!-- brand removed for clean full-width header -->
+
           <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
-          
+
           <nav class="nav" id="mainNav">
             <ul>
               <li><a href="#home" data-panel-target="none">Home</a></li>
-              <li><a href="#about" data-panel-target="about">Work</a></li>
+              <li><a href="#about" data-panel-target="about">About</a></li>
               <li><a href="#skills" data-panel-target="skills">Skills</a></li>
               <li><a href="#experience" data-panel-target="experience">Experience</a></li>
-              <li><a href="#education" data-panel-target="education">Education</a></li>
-              <li><a href="#resume" data-panel-target="resume">Resume</a></li>
               <li><a href="#projects" data-panel-target="projects">Projects</a></li>
+              <li><a href="#resume" data-panel-target="resume">Resume</a></li>
               <li><a href="#contact" data-panel-target="contact">Contact</a></li>
             </ul>
           </nav>
@@ -74,305 +101,309 @@
       </header>
 
       <main class="content">
-  <section id="home" class="hero section" data-animate>
+        <!-- ============ HERO ============ -->
+        <section id="home" class="hero" data-animate>
           <div class="hero-copy">
-            <h1>Unnati Tank</h1>
+            <p class="hero-eyebrow"><span class="dot"></span> Available for Summer 2026 internships</p>
+            <h1>
+              Hi, I'm <span class="gradient-text">Unnati Tank</span>
+            </h1>
             <p class="tagline">
+              <span class="tag-prefix">&gt;</span>
               <span class="typing-text"></span><span class="cursor">|</span>
             </p>
             <p class="description">
-              3rd-year B.Tech (AI-ML) student passionate about intelligent
-              systems, solving real-world problems with ML and deploying work
-              across web and mobile experiences.
+              AI/ML engineering student who ships <strong>production systems</strong> — RAG chatbots,
+              computer vision classifiers, and LangChain SaaS apps. Cut document-query latency
+              <strong>30%</strong> at Infynno Solutions. I love turning research-grade models into
+              real products people can use.
             </p>
 
-            <div class="hero-tags">
-              <span>Machine Learning</span>
-              <span>Deep Learning</span>
-              <span>AI Deployment</span>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="stat-num" data-target="30">0</span><span class="stat-suffix">%</span>
+                <span class="stat-label">latency reduction</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num" data-target="6">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">shipped projects</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num" data-target="2000">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">users served</span>
+              </div>
             </div>
 
             <div class="hero-cta">
-              <a class="btn primary" href="#projects" data-panel-target="projects">View Projects</a>
-              <a class="btn ghost" href="#contact" data-panel-target="contact">Let's Collaborate</a>
+              <a class="btn primary" href="#projects" data-panel-target="projects">
+                <span>Explore Projects</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn ghost" href="Resume.pdf" download>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>Download Resume</span>
+              </a>
             </div>
           </div>
 
           <div class="hero-visual">
             <div class="photo-ring">
+              <div class="ring-orbit ring-orbit-1"></div>
+              <div class="ring-orbit ring-orbit-2"></div>
               <div class="accent-blob"></div>
               <img
                 src="assets/unnati-hero.png"
                 alt="Portrait of Unnati Tank"
                 class="hero-photo"
               />
+              <div class="float-chip chip-py">Python</div>
+              <div class="float-chip chip-rag">RAG</div>
+              <div class="float-chip chip-pt">PyTorch</div>
+              <div class="float-chip chip-fl">Flutter</div>
             </div>
           </div>
         </section>
 
-        <section id="about" class="section published-work" data-animate data-panel="about">
-          <h2>My Work</h2>
-          <div class="published-content">
-            <div class="published-category">
-              <h3>📱 Mobile Apps</h3>
-              <div class="published-grid">
-                <a href="https://play.google.com/store/apps/details?id=com.indianlaw.indian_constitution_vault" 
-                   target="_blank" rel="noopener" class="published-card">
-                  <div class="published-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z"></path>
-                      <path d="M12 18H12.01"></path>
-                    </svg>
-                  </div>
-                  <div class="published-info">
-                    <h4>Constitution Vault</h4>
-                    <span class="published-platform">Google Play Store</span>
-                  </div>
-                  <span class="published-arrow">→</span>
-                </a>
-                <a href="https://github.com/unnatii14/sleepytales-App/releases" 
-                   target="_blank" rel="noopener" class="published-card">
-                  <div class="published-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z"></path>
-                      <path d="M12 18H12.01"></path>
-                    </svg>
-                  </div>
-                  <div class="published-info">
-                    <h4>SleepyTales</h4>
-                    <span class="published-platform">GitHub Release</span>
-                  </div>
-                  <span class="published-arrow">→</span>
-                </a>
-              </div>
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="section about-section" data-animate data-panel="about">
+          <div class="section-eyebrow">01 — About</div>
+          <h2>A quick intro</h2>
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                I'm a third-year <strong>B.Tech AI &amp; ML</strong> student at CHARUSAT University
+                (GPA <strong>8.17/10</strong>) with a strong bias toward <em>shipping</em>. My
+                favourite kind of work sits at the intersection of model research and production
+                engineering — designing pipelines that survive contact with real users.
+              </p>
+              <p>
+                Recent highlights: built <strong>SmartChat</strong>, a TinyLlama + FAISS RAG
+                chatbot that cut query latency 30%; led the AI pipeline for <strong>MeetFlow</strong>,
+                a meeting-to-task SaaS that placed Top 100 of 502 teams at CHARUSAT Hacks 2026; and
+                deployed an offline Flutter law app on the Play Store.
+              </p>
+              <p class="about-cta">
+                When I'm not coding, you'll find me at hackathons, leading workshops for the AI/ML
+                club, or exploring the next paper out of the LLM world.
+              </p>
             </div>
-
-            <div class="published-category">
-              <h3>🌐 Web Applications</h3>
-              <div class="published-grid">
-                <a href="https://health-decode.vercel.app/" 
-                   target="_blank" rel="noopener" class="published-card">
-                  <div class="published-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                  </div>
-                  <div class="published-info">
-                    <h4>HealthDecode</h4>
-                    <span class="published-platform">Vercel</span>
-                  </div>
-                  <span class="published-arrow">→</span>
-                </a>
-                <a href="https://sleepytalesstoryapp.netlify.app/" 
-                   target="_blank" rel="noopener" class="published-card">
-                  <div class="published-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                  </div>
-                  <div class="published-info">
-                    <h4>SleepyTales</h4>
-                    <span class="published-platform">Netlify</span>
-                  </div>
-                  <span class="published-arrow">→</span>
-                </a>
-                <a href="https://expense-tracker-unnati.netlify.app/" 
-                   target="_blank" rel="noopener" class="published-card">
-                  <div class="published-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                  </div>
-                  <div class="published-info">
-                    <h4>Expense Tracker</h4>
-                    <span class="published-platform">Netlify</span>
-                  </div>
-                  <span class="published-arrow">→</span>
-                </a>
+            <div class="about-cards">
+              <div class="about-card tilt-card">
+                <div class="about-card-icon">🧠</div>
+                <h4>What I build</h4>
+                <p>RAG &amp; agentic LLM systems, CV models, and the FastAPI/Next.js apps to deploy them.</p>
+              </div>
+              <div class="about-card tilt-card">
+                <div class="about-card-icon">⚡</div>
+                <h4>How I work</h4>
+                <p>Architecture-first, performance-tuned, end-to-end ownership from notebook to user.</p>
+              </div>
+              <div class="about-card tilt-card">
+                <div class="about-card-icon">🎯</div>
+                <h4>What I'm chasing</h4>
+                <p>An ML engineering internship where models meet real users and real metrics.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Skills Section with Interactive Bars -->
+        <!-- ============ SKILLS ============ -->
         <section id="skills" class="section skills-section" data-animate data-panel="skills">
-          <h2>Technical Skills</h2>
+          <div class="section-eyebrow">02 — Toolkit</div>
+          <h2>Skills &amp; Stack</h2>
           <div class="skills-modern">
-            <div class="skill-group">
-              <h3>Languages</h3>
+            <div class="skill-group tilt-card">
+              <h3><span class="skill-icon">⌨️</span> Languages</h3>
               <div class="skill-badges">
                 <span class="skill-badge expert">Python</span>
-                <span class="skill-badge advanced">Dart (Flutter)</span>
+                <span class="skill-badge advanced">Dart</span>
                 <span class="skill-badge advanced">JavaScript</span>
-                <span class="skill-badge intermediate">C++</span>
+                <span class="skill-badge intermediate">C / C++</span>
               </div>
             </div>
 
-            <div class="skill-group">
-              <h3>ML/AI Frameworks</h3>
+            <div class="skill-group tilt-card">
+              <h3><span class="skill-icon">🤖</span> AI &amp; Machine Learning</h3>
               <div class="skill-badges">
-                <span class="skill-badge expert">Scikit-learn</span>
-                <span class="skill-badge expert">Pandas / NumPy</span>
+                <span class="skill-badge expert">PyTorch</span>
+                <span class="skill-badge expert">scikit-learn</span>
+                <span class="skill-badge expert">LangChain</span>
+                <span class="skill-badge expert">Hugging Face</span>
                 <span class="skill-badge advanced">TensorFlow</span>
-                <span class="skill-badge advanced">PyTorch</span>
                 <span class="skill-badge advanced">FAISS</span>
-                <span class="skill-badge intermediate">Hugging Face</span>
+                <span class="skill-badge advanced">XGBoost</span>
+                <span class="skill-badge advanced">Pandas / NumPy</span>
               </div>
             </div>
 
-            <div class="skill-group">
-              <h3>Web & Mobile</h3>
+            <div class="skill-group tilt-card">
+              <h3><span class="skill-icon">🌐</span> Web &amp; Mobile</h3>
               <div class="skill-badges">
                 <span class="skill-badge expert">FastAPI</span>
                 <span class="skill-badge expert">Flutter</span>
+                <span class="skill-badge advanced">Next.js</span>
                 <span class="skill-badge advanced">React</span>
-                <span class="skill-badge advanced">TypeScript</span>
+                <span class="skill-badge advanced">Node.js</span>
                 <span class="skill-badge intermediate">Tailwind CSS</span>
               </div>
             </div>
 
-            <div class="skill-group">
-              <h3>Tools & Platforms</h3>
+            <div class="skill-group tilt-card">
+              <h3><span class="skill-icon">🛠️</span> Tools &amp; Platforms</h3>
               <div class="skill-badges">
-                <span class="skill-badge expert">Git & GitHub</span>
+                <span class="skill-badge expert">Git &amp; GitHub</span>
                 <span class="skill-badge advanced">Docker</span>
-                <span class="skill-badge advanced">VS Code</span>
-                <span class="skill-badge intermediate">Firebase</span>
-                <span class="skill-badge intermediate">Vercel / Netlify</span>
+                <span class="skill-badge advanced">Supabase</span>
+                <span class="skill-badge advanced">Jupyter / Colab</span>
+                <span class="skill-badge intermediate">Power BI</span>
+                <span class="skill-badge intermediate">Tableau</span>
+              </div>
+            </div>
+
+            <div class="skill-group tilt-card skill-group-wide">
+              <h3><span class="skill-icon">🎯</span> Specializations</h3>
+              <div class="skill-badges">
+                <span class="skill-badge expert">Retrieval-Augmented Generation (RAG)</span>
+                <span class="skill-badge expert">Natural Language Processing</span>
+                <span class="skill-badge expert">Prompt Engineering</span>
+                <span class="skill-badge advanced">Deep Learning</span>
+                <span class="skill-badge advanced">Computer Vision</span>
               </div>
             </div>
           </div>
         </section>
 
+        <!-- ============ EXPERIENCE ============ -->
         <section id="experience" class="section timeline" data-animate data-panel="experience">
-          <h2>Experience</h2>
-          <article>
-            <div>
-              <p class="eyebrow">May 2025 – Jun 2025</p>
-              <h3>AI Intern · Infynno Solutions LLP</h3>
-              <p class="location">India · On-site</p>
-            </div>
-            <ul>
-              <li>
-                Built a smart chatbot using TinyLlama, RAG, FAISS, and
-                sentence-transformers for document Q&A.
-              </li>
-              <li>Developed Gradio-based UI and evaluation workflows.</li>
-              <li>Strengthened end-to-end understanding of LLM deployment.</li>
-            </ul>
-          </article>
-        </section>
+          <div class="section-eyebrow">03 — Experience</div>
+          <h2>Where I've worked</h2>
+          <div class="timeline-track">
+            <article class="timeline-item tilt-card">
+              <div class="timeline-marker"></div>
+              <div class="timeline-head">
+                <p class="eyebrow">May 2025 – Jun 2025</p>
+                <h3>AI Intern · Infynno Solutions LLP</h3>
+                <p class="location">Ahmedabad, India · On-site</p>
+              </div>
+              <ul class="timeline-bullets">
+                <li>
+                  Engineered <strong>SmartChat</strong>, a production-ready RAG chatbot using
+                  TinyLlama and FAISS vector search, cutting document query response time
+                  <strong>30%</strong> vs. the baseline.
+                </li>
+                <li>
+                  Shipped an end-to-end NLP pipeline covering embedding generation, vector
+                  similarity search, and context-aware response synthesis, served through a
+                  Gradio UI.
+                </li>
+                <li>
+                  Owned the full lifecycle — architecture design through performance tuning —
+                  collaborating with the engineering team.
+                </li>
+              </ul>
+              <div class="tag-list">
+                <span>TinyLlama</span><span>FAISS</span><span>RAG</span><span>Gradio</span><span>NLP</span>
+              </div>
+            </article>
+          </div>
 
-        <section id="education" class="section cards" data-animate data-panel="education">
-          <h2>Education</h2>
-          <article>
+          <h3 class="sub-h">Education</h3>
+          <article class="edu-card tilt-card">
             <img src="assets/charusat-logo.png" alt="CHARUSAT University logo" class="edu-logo" />
             <div class="edu-card-content">
-              <p class="eyebrow">Jul 2023 – Jul 2027</p>
-              <h3>CHARUSAT University</h3>
-              <p>B.Tech in Artificial Intelligence & Machine Learning</p>
+              <p class="eyebrow">2023 – 2027 · GPA 8.17 / 10</p>
+              <h3>B.Tech in Artificial Intelligence &amp; Machine Learning</h3>
+              <p>CSPIT, Charotar University of Science and Technology, Anand, India</p>
             </div>
           </article>
         </section>
 
-        <section id="resume" class="section resume" data-animate data-panel="resume">
-          <div class="resume-header">
-            <h2>Resume</h2>
-            <a class="btn primary" href="Resume.pdf" download>
-              ↓ Download PDF Resume
-            </a>
-          </div>
-
-          <!-- Resume Image -->
-          <div class="resume-embed">
-            <img src="assets/Resume_page-0001.jpg" alt="Unnati Tank Resume" class="resume-image" loading="lazy" />
-          </div>
-        </section>
-
+        <!-- ============ PROJECTS ============ -->
         <section id="projects" class="section projects" data-animate data-panel="projects">
+          <div class="section-eyebrow">04 — Selected Work</div>
           <div class="section-header">
-            <h2>Projects</h2>
+            <h2>Featured Projects</h2>
+            <p class="section-sub">Six projects spanning production internships, hackathon wins, and live Play Store apps.</p>
           </div>
           <div class="project-grid" data-project-grid>
             <div class="project-card skeleton"></div>
             <div class="project-card skeleton"></div>
             <div class="project-card skeleton"></div>
+            <div class="project-card skeleton"></div>
+            <div class="project-card skeleton"></div>
+            <div class="project-card skeleton"></div>
           </div>
         </section>
 
+        <!-- ============ RESUME ============ -->
+        <section id="resume" class="section resume" data-animate data-panel="resume">
+          <div class="section-eyebrow">05 — Document</div>
+          <div class="resume-header">
+            <h2>Resume</h2>
+            <a class="btn primary" href="Resume.pdf" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <span>Download PDF</span>
+            </a>
+          </div>
+          <div class="resume-embed">
+            <iframe src="Resume.pdf#view=FitH" title="Unnati Tank Resume" class="resume-frame" loading="lazy"></iframe>
+          </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
         <section id="contact" class="section contact" data-animate data-panel="contact">
+          <div class="section-eyebrow">06 — Say hi</div>
           <div class="contact-header">
-            <h2>Let's Collaborate</h2>
+            <h2>Let's build something</h2>
             <p>
-              Always open to internships, hackathons, and building ML-powered
-              products together. Drop me a message!
+              Open to <strong>internships</strong>, hackathon teammates, and ML-powered
+              product collaborations. I usually reply within 24 hours.
             </p>
           </div>
 
           <div class="contact-container">
             <form class="contact-form" id="contactForm">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="from_name" 
-                  placeholder="Your name" 
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="reply_to" 
-                  placeholder="your.email@example.com" 
-                  required
-                />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="from_name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="reply_to" placeholder="you@example.com" required />
+                </div>
               </div>
 
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows="5" 
-                  placeholder="Tell me about your project or collaboration idea..." 
-                  required
-                ></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, role, or hackathon idea…" required></textarea>
               </div>
 
-              <button type="submit" class="btn primary">Send Message</button>
+              <button type="submit" class="btn primary">
+                <span>Send Message</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
               <p class="form-status" style="display: none; margin-top: 0.5rem; font-size: 0.9rem;"></p>
             </form>
 
             <div class="contact-info">
               <div class="info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Junagadh, Gujarat, India</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Anand, Gujarat, India</span>
               </div>
-
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:unnatitank14@gmail.com">unnatitank14@gmail.com</a>
+              </div>
               <div class="social-links">
-                <a href="https://github.com/unnatii14" target="_blank" rel="noopener" title="GitHub">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
+                <a href="https://github.com/unnatii14" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <a href="https://www.linkedin.com/in/unnati-tank-a43404285/" target="_blank" rel="noopener" title="LinkedIn">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
+                <a href="https://www.linkedin.com/in/unnati-tank-a43404285/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://www.hackerrank.com/" target="_blank" rel="noopener" title="HackerRank" aria-label="HackerRank">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.6 6v12L12 24l10.4-6V6L12 0zm3.5 17.5c-.3 0-.5-.2-.5-.5v-4H9v4c0 .3-.2.5-.5.5h-1c-.3 0-.5-.2-.5-.5V7c0-.3.2-.5.5-.5h1c.3 0 .5.2.5.5v4h6V7c0-.3.2-.5.5-.5h1c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5h-1z"/></svg>
                 </a>
               </div>
             </div>
@@ -380,16 +411,16 @@
         </section>
 
         <footer class="section footer">
-          <p>© 2025 Unnati Tank · Built with passion for AI & ML.</p>
+          <p>© 2026 Unnati Tank · Built from scratch with HTML, CSS &amp; vanilla JS · <span class="heart">♥</span> AI</p>
         </footer>
       </main>
     </div>
 
     <script src="script.js"></script>
-    
+
     <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" class="scroll-top-btn" title="Back to top">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Back to top" aria-label="Back to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <polyline points="18 15 12 9 6 15"></polyline>
       </svg>
     </button>
